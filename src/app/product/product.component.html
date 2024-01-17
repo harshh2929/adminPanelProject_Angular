@@ -1,0 +1,51 @@
+<div class="admin-panel">
+    <h2 style="margin-left: 20px; margin-top: 80px;">Products in Admin Panel</h2>
+    <button (click)="toggleAddProductForm()" class="add-seller-button ">Add Product</button>
+
+    <div *ngIf="showAddProductForm" class="add-product-form">
+        <h3 style="margin-left: 20px;">Add Product: </h3>
+        <form (submit)="submitAddProductForm()" style="margin-left: 20px;">
+            <label for="productName">Product Name: </label>
+            <input type="text" id="productName" [(ngModel)]="newProduct.name" name="productName" required>
+
+            <label for="productPrice" style="margin-left: 10px;">Price: </label>
+            <input type="number" id="productPrice" [(ngModel)]="newProduct.price" name="productPrice" required>
+
+            <label for="productQuantity" style="margin-left: 10px;">Quantity: </label>
+            <input type="number" id="productQuantity" [(ngModel)]="newProduct.quantity" name="productQuantity" required><br>
+            <br>
+            <label for="manufacturerName">Manufacturer Name: </label>
+            <input type="text" id="manufacturerName" [(ngModel)]="newProduct.manufacturerName" name="manufacturerName" required>
+
+            <label for="manufacturerLocation" style="margin-left: 10px;">Manufacturer Location: </label>
+            <input type="text" id="manufacturerLocation" [(ngModel)]="newProduct.manufacturerLocation"
+                name="manufacturerLocation" required>
+
+            <button type="button" (click)="cancelAddProductForm()">Cancel</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Manufacturer Name</th>
+                <th>Manufacturer Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = index">
+                <td>{{ product.id }}.</td>
+                <td>{{ product.name }}.</td>
+                <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}.</td>
+                <td>{{ product.quantity }}.</td>
+                <td>{{ product.manufacturerName }}.</td>
+                <td>{{ product.manufacturerLocation }}.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

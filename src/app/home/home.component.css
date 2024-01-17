@@ -1,0 +1,103 @@
+.box-list {
+    display: flex;
+    margin-top: 60px;
+
+}
+
+h4 {
+    font-size: 18px;
+    color: #000000;
+    margin: 8px;
+}
+
+.box {
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    border: 1px solid #000000;
+    margin: 20px;
+}
+
+.rectangle {
+    width: calc(100% - 40px);
+    height: 200px;
+    background-color: #ffffff;
+    border: 1px solid #2980b9;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.insidebox {
+    width: 200px;
+    height: 180px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    margin: 5px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    color: #007BFF;
+    background-color: transparent;
+    transition: color 0.3s;
+    display: block;
+    margin: 10px auto;
+}
+
+.button:hover {
+    color: #f06529;
+}
+
+.text-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    margin: 8px;
+}
+
+.rectangle {
+    position: relative;
+}
+
+.text-top-left {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-weight: bold;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.image-row img {
+    max-width: 150px;
+    max-height: 125px;
+    margin-right: 5px;
+}
+
+h5 {
+    font-size: 14px;
+    color: #000000;
+    margin: 8px;
+}

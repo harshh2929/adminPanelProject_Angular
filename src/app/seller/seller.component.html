@@ -1,0 +1,54 @@
+<div class="admin-panel">
+    <h2>Sellers in Admin Panel</h2>
+    <button (click)="toggleAddSellerForm()" class="add-seller-button">Add Seller</button>
+
+    <div *ngIf="showAddSellerForm" class="add-seller-form">
+        <h3 style="margin-left: 10px;">Add Seller</h3>
+        <form (submit)="submitAddSellerForm()" style="margin-left: 10px;">
+            <label for="sellerName">Name: </label>
+            <input type="text" id="sellerName" [(ngModel)]="newSeller.name" name="sellerName" required>
+
+            <label for="sellerSalary" style="margin-left: 10px;">Salary: </label>
+            <input type="number" id="sellerSalary" [(ngModel)]="newSeller.salary" name="sellerSalary" required>
+
+            <label for="sellerPosition" style="margin-left: 10px;">Position: </label>
+            <input type="text" id="sellerPosition" [(ngModel)]="newSeller.position" name="sellerPosition" required>
+
+            <label for="sellerMobile" style="margin-left: 10px;">Mobile: </label>
+            <input type="tel" id="sellerMobile" [(ngModel)]="newSeller.mobile" name="sellerMobile" required>
+
+            <button type="button" (click)="cancelAddSellerForm()">Cancel</button>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Seller ID</th>
+                <th>Seller Name</th>
+                <th>Seller Salary</th>
+                <th>Position</th>
+                <th>Mobile</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let seller of sellers; let i = index">
+                <td>{{ seller.id }}.</td>
+                <td>{{ seller.name }}.</td>
+                <td>{{ seller.salary | currency:'INR':'symbol':'1.2-2' }}.</td>
+                <td>{{ seller.position }}.</td>
+                <td>{{ seller.mobile }}.</td>
+                <td> <button mat-fab color="primary" class="delete" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-fab color="primary" class="delete" aria-label="Example icon button with a edit icon">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

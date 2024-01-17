@@ -1,0 +1,51 @@
+<div class="admin-panel">
+    <h2 style="margin-left: 20px; margin-top: 80px;">Employees in Admin Panel</h2>
+    <button (click)="toggleAddEmployeeForm()" class="add-seller-button">Add Employees</button>
+
+    <div *ngIf="showAddEmployeeForm" class="add-seller-form">
+        <h3 style="margin-left: 10px;">Add Employee</h3>
+        <form (submit)="submitAddEmployeeForm()" style="margin-left: 10px;">
+            <label for="employeeName">Name: </label>~
+            <input type="text" id="employeeName" [(ngModel)]="newEmployee.name" name="employeeName" required>
+
+            <label for="employeeSalary" style="margin-left: 10px;">Salary: </label>
+            <input type="number" id="employeeSalary" [(ngModel)]="newEmployee.salary" name="employeeSalary" required>
+
+            <label for="employeePerformance" style="margin-left: 10px;">Performance: </label>
+            <input type="text" id="employeePerformance" [(ngModel)]="newEmployee.performance" name="employeePerformance"
+                required>
+
+            <label for="employeeAddress" style="margin-left: 10px;">Address: </label>
+            <input type="text" id="employeeAddress" [(ngModel)]="newEmployee.address" name="employeeAddress" required>
+
+            <label for="employeeMobile" style="margin-left: 10px;">Mobile: </label>
+            <input type="tel" id="employeeMobile" [(ngModel)]="newEmployee.mobile" name="employeeMobile" required> <BR>
+
+            <button type="button" (click)="cancelAddEmployeeForm()">Cancel</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Performance</th>
+                <th>Address</th>
+                <th>Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees; let i = index">
+                <td>{{ i + 1 }}.</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.salary | currency:'INR':'symbol':'1.2-2' }}</td>
+                <td>{{ employee.performance }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{{ employee.mobile }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
